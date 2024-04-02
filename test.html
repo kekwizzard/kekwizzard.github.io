@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        canvas
+        {
+            border:1px solid black;
+        }
+    </style>
+    <script>
+        let ctx, canvas, screen, atack_x, atack_y;
+        function init(a, b)
+        {
+            screen = document.getElementById('screen');        
+            ctx = screen.getContext('2d');            
+            sound();
+        }
+        function cannon_direction(event) 
+		{					
+            atack_x = event.clientX;
+            atack_y = event.clientY;
+            qq( atack_x, atack_y);
+            //alert('jopa');
+            //alert(atack_x + ' ' +  atack_y);
+            //alert(unit[0].object_x + ' ' + unit[0].object_y)
+            //alert(a.object_x);
+            //alert(unit[0].object_x);
+            
+        }
+        function qq(a, b)
+        {   
+            ctx.save();
+            ctx.beginPath();
+            //ctx.rotate(70 * Math.PI/180);
+            /*ctx.moveTo(300,200);
+            ctx.lineTo(100,200);
+            ctx.stroke();*/
+            /*ctx.translate(0, 0);
+            ctx.translate(300, 200);
+            ctx.rotate(Math.abs(a - b)* Math.PI/180);
+            ctx.fillRect(0,0,230,13)
+            ctx.restore();*/
+            ctx.moveTo(300,200);
+            ctx.lineTo(a,b);
+            ctx.stroke();
+            ctx.closePath();
+            ctx.restore();
+        }
+        function sound()
+        {
+            let a = new Audio();
+            a.src = 'a.m4a';
+            if (!a.autoplay)a.play();           
+        }
+
+        function muzplay() 
+        {
+            let muz = new Audio();
+            muz.src = 'a.m4a';
+            
+            let button = document.getElementById("play");
+
+            if (muz.paused) {
+                muz.play();
+                button.textContent = "||";
+            } else {
+                muz.pause();
+                button.textContent = ">";
+            }
+        }
+    </script>
+    <style>
+        body{ margin: 0;}
+        canvas
+        { 	
+            background-color: rgb(255, 200, 241);	    
+            border: 1px solid black;         
+        }
+    </style>
+</head>
+<body  >
+    <canvas width='600' height='400' id='screen' onClick = "cannon_direction(event)"></canvas>   
+    <button onClick='sound()' id = "play">sound</button>
+</body>
+</html>

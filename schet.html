@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<heml>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>главная</title>
+        <link href="mainstyle.css" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>   
+        <script>
+            function add_1()
+            {
+                document.getElementById("output").innerText += '1';
+            }
+            function add_2()
+            {
+                document.getElementById("output").innerText += '2';
+            }
+            function add_3()
+            {
+                document.getElementById("output").innerText += '3';
+            }
+            function add_plus()
+            {
+                document.getElementById("output").innerText += '+';
+            }
+            function add_4()
+            {
+                document.getElementById("output").innerText += '4';
+            }
+            function add_5()
+            {
+                document.getElementById("output").innerText += '5';
+            }
+            function add_6()
+            {
+                document.getElementById("output").innerText += '6';
+            }
+            function add_minus()
+            {
+                document.getElementById("output").innerText += '-';
+            }
+            function add_7()
+            {
+                document.getElementById("output").innerText += '7';
+            }
+            function add_8()
+            {
+                document.getElementById("output").innerText += '8';
+            }
+            function add_9()
+            {
+                document.getElementById("output").innerText += '9';
+            }
+            function add_mnoj()
+            {
+                document.getElementById("output").innerText += '*';
+            }
+            function add_stepen()
+            {
+                document.getElementById("output").innerText += '^';
+            }
+            function add_0()
+            {
+                document.getElementById("output").innerText += '0';
+            }
+            function CE()
+            {
+                document.getElementById("output").innerHTML = '';
+            }
+            function add_dec()
+            {
+                document.getElementById("output").innerText += '/';
+            }
+            function sin()
+            {
+                document.getElementById("output").innerText += 'sin';
+            }
+            function cos()
+            {
+                document.getElementById("output").innerText += 'cos';
+            }
+            function log()
+            {
+                document.getElementById("output").innerText += 'log';
+            }
+            function add_open()
+            {
+                document.getElementById("output").innerText += '(';
+            }
+            function add_close()
+            {
+                document.getElementById("output").innerText += ')';
+            }
+            function undo()
+            {                
+                let del = 1;
+                let value = document.getElementById("output").innerHTML; 
+                if (value[value.length - 1] == 's') del = 3;      
+                if (value[value.length - 1] == 'n') 
+                {
+                    if (value[value.length - 2] == 'l') del = 2;
+                    else del = 3;
+                }                                  
+                document.getElementById("output").innerHTML = value.slice(0, value.length - del);;
+
+            }
+            function dot()
+            {                
+                document.getElementById("output").innerText += '.';
+            }    
+            function schet()
+            {
+                let str = document.getElementById('output').innerHTML;
+                for (let i = 0; i < str.length; i++)
+                {
+                    if (str[i] == 'c')
+                    {
+                        str = str.substr(0, i) + "Math." + str.substr(i, str.length);
+                        i += 5;
+                    }
+                    if (str[i] == 'i')
+                    {
+                        str = str.substr(0, i - 1) + "Math." + str.substr(i - 1, str.length)
+                        i +=5;
+                    }
+                    if (str[i] == 'g') 
+                    {
+                        str = str.substr(0, i - 2) + "Math." + str.substr(i - 2, str.length);
+                        i += 5;
+                    }                   
+                }                              
+                document.getElementById("output").innerHTML = eval(str);
+            }
+            let Memory = 0;
+            function MS()
+            {
+                Memory = document.getElementById("output").innerText;
+            }
+
+            function MC()
+            {
+                Memory = 0;
+            }
+
+            function M_plus()
+            {  
+                let str = document.getElementById('output').innerHTML;
+                for (let i = 0; i < str.length; i++)
+                {
+                    if (str[i] == 'c')
+                    {
+                        str = str.substr(0, i) + "Math." + str.substr(i, str.length);
+                        i += 5;
+                    }
+                    if (str[i] == 'i')
+                    {
+                        str = str.substr(0, i - 1) + "Math." + str.substr(i - 1, str.length)
+                        i +=5;
+                    }
+                    if (str[i] == 'g') 
+                    {
+                        str = str.substr(0, i - 2) + "Math." + str.substr(i - 2, str.length);
+                        i += 5;
+                    }                   
+                }    
+                let a = eval(str)                            
+                Memory = a + eval(Memory);
+            }
+
+            function M_minus()
+            {  
+                let str = document.getElementById('output').innerHTML;
+                for (let i = 0; i < str.length; i++)
+                {
+                    if (str[i] == 'c')
+                    {
+                        str = str.substr(0, i) + "Math." + str.substr(i, str.length);
+                        i += 5;
+                    }
+                    if (str[i] == 'i')
+                    {
+                        str = str.substr(0, i - 1) + "Math." + str.substr(i - 1, str.length)
+                        i +=5;
+                    }
+                    if (str[i] == 'g') 
+                    {
+                        str = str.substr(0, i - 2) + "Math." + str.substr(i - 2, str.length);
+                        i += 5;
+                    }                   
+                }               
+                let a = eval(str);                 
+                Memory = eval(Memory) - a;
+            }
+
+            function MR()
+            { 
+                document.getElementById('output').innerHTML = Memory; 
+            }
+
+        </script>     
+    </head>
+    <body>
+        <div class="container-fluid">
+                <div class="row menu">                                   
+                    <div class="dropdown">
+                        <div class="row">                            
+                            <img src="katz.png" class="img-fluid"/>
+                        </div>                        
+                    </div>
+                    <ul id="breadcrumbs-one" class="jija">
+                        <li><a href="">Дима</a></li>
+                        <li><a href="">Дроговоз</a></li>
+                    </ul>
+                </div>
+            <div class="container">
+                    <div class="row top">
+                        здесь типа меню есть
+                    </div>
+                    <div class="row">
+                        <div class="media col warinfo">
+                            <img src="dom.jpg" width="100%"  class="img-fluid"/>
+                
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col info">
+                            <i>
+                                <h4><span class="badge badge-secondary">калькулятор</span></h4>
+                            </i>
+                        </div>                       
+                    </div>
+                    <div class="col info kalk">                        
+                            <div class = 'row'>
+                                <div class="col row" id = "output"></div>
+                            </div><br>
+                            <div class="row">
+                                <input class="butt col" id="a1" type="button" onClick = "add_1()"value="1">
+                                <input class="butt col" id="2" type="button" onClick = "add_2()"value="2">
+                                <input class="butt col" id="3" type="button" onClick = "add_3()"value="3">
+                                <input class="butt col" id="plus" type="button" onClick = "add_plus()"value="+"> 
+                                <input class="butt col" id="plus" type="button" onClick = "MS()"value="MS"><br>
+                            </div>
+                            
+                            <div class="row">
+                                <input class="butt col" id="4" type="button" onClick = "add_4()"value="4">
+                                <input class="butt col" id="5" type="button" onClick = "add_5()"value="5">
+                                <input class="butt col" id="6" type="button" onClick = "add_6()"value="6"> 
+                                <input class="butt col" id="minus" type="button" onClick = "add_minus()"value="-">
+                                <input class="butt col" id="minus" type="button" onClick = "MC()"value="MC"><br>
+                            </div>
+                            <div class="row">
+                                <input class="butt col" id="7" type="button" onClick = "add_7()"value="7">
+                                <input class="butt col" id="8" type="button" onClick = "add_8()"value="8">
+                                <input class="butt col" id="9" type="button" onClick = "add_9()"value="9"> 
+                                <input class="butt col" id="mnoj" type="button" onClick = "add_mnoj()"value="*">
+                                <input class="butt col" id="mnoj" type="button" onClick = "MR()"value="MR"><br>
+                            </div>                            
+                            <div class="row">
+                                <input class="butt col" id="stepen" type="button" onClick = "add_stepen()"value="^">
+                                <input class="butt col" id="0" type="button" onClick = "add_0()"value="0">
+                                <input class="butt col" id="CE" type="button" onClick = "CE()"value="CE"> 
+                                <input class="butt col" id="dec" type="button" onClick = "add_dec()"value="/">
+                                <input class="butt col" id="dec" type="button" onClick = "M_plus()"value="M+"><br>
+                            </div>
+                            <div class="row">
+                                <input class="butt col" id="sin" type="button" onClick = "sin()"value="sin">
+                                <input class="butt col" id="cos" type="button" onClick = "cos()"value="cos">
+                                <input class="butt col" id="log" type="button" onClick = "log()"value="log"> 
+                                <input class="butt col" id="ravno" type="button"onClick = "schet()" value="=">
+                                <input class="butt col" id="ravno" type="button"onClick = "M_minus()" value="M-"><br>
+                            </div>
+                            <div class="row">
+                                <input class="butt col" id="open" type="button" onClick ="add_open()" value="(">
+                                <input class="butt col" id="close" type="button" onClick ="add_close()"value=")">  
+                                <input class="butt col" id="C" type="button" onClick ="dot()"value=".">     
+                                <input class="butt col" id="C" type="button" onClick ="undo()"value="C"><br>                                
+                            </div>                                             
+                            <div class="row"><a href = "main.html" class="col"><input class="butt col" id="C" type="button" href = "main.html"value="вернуться на главную страницу"></a></div>
+                    </div>
+                    <div class="row footer">.</div>
+                    <div class="row">
+                        <div class="col footer">
+                            .</br>.</br>.</br>.
+                        </div>
+                    </div>
+                    <div class="row footer">.</div>
+                </div> 
+                <div class="row menu">.</div>
+            </div>
+    </body>
+</heml>
